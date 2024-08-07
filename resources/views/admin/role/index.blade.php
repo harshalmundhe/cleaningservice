@@ -4,9 +4,11 @@
     <div class="container">
         <div class="card">
             <div class="card-header"><b>Roles</b>
+                @can('create role')
                 <div class="float-end">
                     <a href="{{ route('admin.role.add') }}" class="btn btn-primary">Add New</a>
                 </div>
+                @endcan
             </div>
             <div class="card-body">
                 @include('admin.partials.flash')

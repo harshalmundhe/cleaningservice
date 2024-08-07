@@ -15,6 +15,7 @@ Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/estimate', [HomeController::class, 'estimate'])->name('estimate');
+Route::post('/estimate/add', [HomeController::class, 'estimateAdd'])->name('estimate.add');
 
 
 
@@ -48,7 +49,8 @@ Route::prefix('admin')->middleware(['isAdmin'])->group(function () {
     
 
 
-    Route::get('/estimate', [RoleController::class, 'index'])->name('admin.estimate');
+    Route::get('/estimate', [AdminController::class, 'estimate'])->name('admin.estimate');
+    Route::get('/estimate/{id}', [AdminController::class, 'viewEstimate'])->name('admin.estimate.view');
     
     
 });

@@ -9,34 +9,42 @@
     </a>
   </li>
 
+  @can('list user')
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ route('admin.users') }}">
       <i class="bi bi-person"></i>
       <span>User Management</span>
     </a>
   </li>
+  @endcan
 
+  @can('list role')
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ route('admin.roles') }}">
       <i class="bi bi-key"></i>
       <span>Roles Management</span>
     </a>
   </li>
+  @endcan
 
+    @can('list blog')
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ route('admin.post') }}">
       <i class="bi bi-file"></i>
       <span>Blog Management</span>
     </a>
   </li>
+  @endcan
 
   
+  @can('list estimate page')
   <li class="nav-item">
     <a class="nav-link collapsed" href="{{ route('admin.estimate') }}">
       <i class="bi bi-list"></i>
       <span>Estimate Management</span>
     </a>
   </li>
+  @endcan
 
 </ul>
 
