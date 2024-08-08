@@ -55,7 +55,7 @@ class HomeController extends Controller
 
             $clean_service = '';
             if(!empty($request->clean_service)) {
-                $clean_service = implode('<br>', json_decode($request->clean_service, true));
+                $clean_service = implode('<br>', $request->clean_service);
             }
 
             $message = '<div class="row">
@@ -178,9 +178,15 @@ class HomeController extends Controller
         $headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type: text/html; charset=UTF-8' . "\r\n";
 
-        $headers .= env('MAIL_FROM_ADDRESS') . "\r\n";
+        $headers = 'From: ' . env('MAIL_FROM_ADDRESS') . "\r\n";
+        
+        try {
+                
+            mail($to, $subject, $message, $headers);
+            return redirect()->back()->with('success', 'Inserted Successfully');
+        } catch (\Exception $e) {
+            return redirect()->back()->with('success', 'Inserted Successfully Mail send failed');
 
-        mail($to, $subject, $message, $headers);
-        return redirect()->back()->with('success', 'Inserted Successfully');
+        }
     }
 }

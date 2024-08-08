@@ -3,11 +3,31 @@
 @section('content')
 
 
+<div class="container"> 
+        <div class="row justify-content-center"> 
+            <div class="col-11  p-0 mt-3 mb-2"> 
+                <div class="px-0 pt-4 pb-0 mt-3 mb-3"> 
+                            
+                        @include('admin.partials.flash')
 
+                        <form id="form" action="{{ route('estimate.add') }}" method="post">
+                            @csrf
+                        <ul id="progressbar"> 
+                            <li class="active" id="step1"> 
+                                <strong>Step 1</strong> 
+                            </li> 
+                            <li id="step2"><strong>Step 2</strong></li> 
+                            <li id="step3"><strong>Step 3</strong></li> 
+                            <li id="step4"><strong>Step 4</strong></li> 
+                            <li id="step5"><strong>Step 5</strong></li> 
+                        </ul> 
+                        <div class="progress"> 
+                            <div class="progress-bar"></div> 
+                        </div> <br> 
+                        <fieldset> 
+                            <h2>Personal Detais</h2> 
+                            
 
-
-<form action="{{ route('estimate.add') }}" method="post">
-    @csrf
     <div class="form-group">
         <label for="name">Name</label>
         <input type="text" class="form-control" name="name">
@@ -22,6 +42,13 @@
         <label for="email">Email</label>
         <input type="text" class="form-control" name="email">
     </div>
+                            <input type="button" name="next-step" 
+                                class="next-step" value="Next Step" /> 
+                        </fieldset> 
+                        <fieldset> 
+                            <h2>Your Property</h2> 
+                            
+
 
     
     <div class="form-group">
@@ -54,6 +81,17 @@
             <option value="Yes">Yes</option>
         </select>
     </div>
+
+                            <input type="button" name="next-step" 
+                                class="next-step" value="Next Step" /> 
+                            <input type="button" name="previous-step" 
+                                class="previous-step" 
+                                value="Previous Step" /> 
+                        </fieldset> 
+                        <fieldset> 
+                            <h2>Cleaning Service</h2> 
+
+                            
 
     <div class="form-group">
         <label for="clean_service_period">How often would you like Cleaning Service</label>
@@ -105,6 +143,16 @@
         <input type="text" class="form-control" name="pet_type">
     </div>
 
+                            <input type="button" name="next-step" 
+                                class="next-step" value="Final Step" /> 
+                            <input type="button" name="previous-step" 
+                                class="previous-step" 
+                                value="Previous Step" /> 
+                        </fieldset>
+                         
+                        <fieldset> 
+                            <h2>More Details</h2> 
+                            
     
     <div class="form-group">
         <label for="allergies_sensitives">Are there any allergies or sensitives that our cleaner should be aware of?</label>
@@ -152,10 +200,31 @@
 
 
 
+                            <input type="button" name="next-step" 
+                                class="next-step" value="Final Step" /> 
+                            <input type="button" name="previous-step" 
+                                class="previous-step" 
+                                value="Previous Step" /> 
+                        </fieldset> 
+                        <fieldset> 
+                            <div class="finish"> 
+                                <h2 class="text text-center"> 
+                                    <strong>FINISHED</strong> 
+                                </h2> 
+                            </div> 
+                            <input type="button" name="previous-step" 
+                                class="previous-step" 
+                                value="Previous Step" /> 
+                                
+                        <input type="submit" name="save" value="Save" class="mt-3 btn btn-primary">
+                        </fieldset> 
+                    </form> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
 
-    
-    <input type="submit" name="save" value="Save" class="mt-3 btn btn-primary">
-</form>
+
 
 
 @endsection
