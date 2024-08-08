@@ -1,6 +1,11 @@
 @extends('layout.app')
 
 @section('content')
+
+
+
+
+
 <form action="{{ route('estimate.add') }}" method="post">
     @csrf
     <div class="form-group">
