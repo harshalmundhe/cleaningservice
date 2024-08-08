@@ -34,7 +34,7 @@
                                         @endcan
                                         @can('delete user')
                                         <a class="btn btn-danger m-2" href="{{ route('admin.user.delete', $user->id) }}" ><i class='bi bi-trash'></i></a>
-                                        @end('can')
+                                        @endcan
                                     </div>
                                 </td>
                             </tr>
